@@ -1,0 +1,286 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+    --background: 0.08 0 0;
+    --foreground: 0.97 0 0;
+    --card: 0.12 0 0;
+    --card-foreground: 0.97 0 0;
+    --popover: 0.12 0 0;
+    --popover-foreground: 0.97 0 0;
+    --primary: 0.87 0.22 152;
+    --primary-foreground: 0.08 0 0;
+    --secondary: 0.16 0.04 152;
+    --secondary-foreground: 0.97 0 0;
+    --muted: 0.16 0 0;
+    --muted-foreground: 0.6 0 0;
+    --accent: 0.87 0.22 152;
+    --accent-foreground: 0.08 0 0;
+    --destructive: 0.577 0.245 27.325;
+    --destructive-foreground: 0.985 0 0;
+    --border: 1 0 0 / 10%;
+    --input: 1 0 0 / 12%;
+    --ring: 0.87 0.22 152;
+    --chart-1: 0.87 0.22 152;
+    --chart-2: 0.6 0.118 184.704;
+    --chart-3: 0.398 0.07 227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+    --sidebar: 0.1 0 0;
+    --sidebar-foreground: 0.97 0 0;
+    --sidebar-primary: 0.87 0.22 152;
+    --sidebar-primary-foreground: 0.08 0 0;
+    --sidebar-accent: 0.16 0 0;
+    --sidebar-accent-foreground: 0.97 0 0;
+    --sidebar-border: 1 0 0 / 10%;
+    --sidebar-ring: 0.87 0.22 152;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Playfair Display", Georgia, serif;
+    overflow-x: hidden;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* ── Neon pill button (dark bg) ─────────────────────────────────────────────── */
+.btn-neon {
+  background-color: #00ff9c;
+  color: #0b0b0b;
+  font-weight: 700;
+  border-radius: 9999px;
+  padding: 0.6rem 1.4rem;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  border: none;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
+.btn-neon:hover {
+  box-shadow: 0 0 24px #00ff9c, 0 0 48px rgba(0, 255, 156, 0.4);
+  transform: translateY(-1px);
+}
+
+/* ── White outlined button (dark bg) ────────────────────────────────────────── */
+.btn-outline-white {
+  background: transparent;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.btn-outline-white:hover {
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 16px rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+/* ── Green outlined button (light bg) ───────────────────────────────────────── */
+.btn-green-outline {
+  background: transparent;
+  color: #00a06a;
+  font-weight: 600;
+  border-radius: 9999px;
+  border: 1.5px solid #00a06a;
+  padding: 0.6rem 1.4rem;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+}
+.btn-green-outline:hover {
+  background: #00a06a;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* ── Laptop frame ────────────────────────────────────────────────────────────── */
+.laptop-frame {
+  background: #1a1a1a;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  border: 1.5px solid rgba(0, 255, 156, 0.25);
+  box-shadow: 0 0 30px rgba(0, 255, 156, 0.08), 0 32px 80px rgba(0, 0, 0, 0.7);
+}
+.laptop-topbar {
+  background: rgba(255, 255, 255, 0.04);
+  padding: 0.55rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.url-bar {
+  flex: 1;
+  text-align: center;
+  font-size: 0.65rem;
+  color: #555;
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: 9999px;
+  padding: 0.15rem 0.75rem;
+  margin: 0 0.5rem;
+}
+.laptop-screen {
+  background: #111;
+  min-height: 180px;
+}
+
+/* ── Phone frame ─────────────────────────────────────────────────────────────── */
+.phone-frame {
+  width: 200px;
+  background: #0d0d0d;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 2rem;
+  padding: 1rem;
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.7), 0 0 40px rgba(0, 255, 156, 0.06);
+  min-height: 380px;
+}
+.phone-notch {
+  width: 56px;
+  height: 16px;
+  background: #1a1a1a;
+  border-radius: 9999px;
+  margin: 0 auto 1rem;
+}
+
+/* ── Waveform bars ────────────────────────────────────────────────────────────── */
+@keyframes waveBar {
+  0%,
+  100% {
+    transform: scaleY(0.3);
+  }
+  50% {
+    transform: scaleY(1);
+  }
+}
+.wave-bar {
+  width: 3px;
+  height: 24px;
+  border-radius: 2px;
+  background: #00ff9c;
+  transform-origin: center;
+  animation: waveBar 0.9s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+/* ── Mic pulse ────────────────────────────────────────────────────────────────── */
+@keyframes micPulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 156, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(0, 255, 156, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 255, 156, 0);
+  }
+}
+.mic-pulse {
+  animation: micPulse 2s ease-out infinite;
+}
+
+/* ── Ring pulse for service overview ─────────────────────────────────────────── */
+@keyframes ringPulse {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.04);
+  }
+}
+
+/* ── Floating avatars (translation section) ──────────────────────────────────── */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+.float-avatar {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* ── Industry marquee ────────────────────────────────────────────────────────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: flex;
+  animation: marquee 28s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* ── Neon shadow util ────────────────────────────────────────────────────────── */
+.shadow-neon {
+  box-shadow: 0 0 24px rgba(0, 255, 156, 0.5);
+}
+
+/* ── Scroll reveal (CSS fallback) ────────────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── GSAP animation fallbacks: ensure visibility if GSAP fails ─────────────── */
+.hero-word,
+.trust-anim,
+.zoom-anim,
+.trans-anim,
+.cat-card,
+.fn-card,
+.sim-anim,
+.price-card,
+.faq-item {
+  opacity: 1;
+  transform: none;
+}
